@@ -8,8 +8,8 @@ class Products with ChangeNotifier {
     return [..._allproducts];
   }
 
-  void addproduct(value) {
-    _allproducts.add(value);
-    notifyListeners();
-  }
+  // void addproduct(value) {
+  //   _allproducts.add(value);
+  //   notifyListeners();
+  // }
 }
