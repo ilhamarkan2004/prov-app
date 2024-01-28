@@ -46,6 +46,13 @@ class ProductDetailScreen extends StatelessWidget {
               fontSize: 24,
             ),
           ),
+          SizedBox(height: 20),
+          OutlinedButton(
+              onPressed: () {},
+              child: Text(
+                'Add to cart',
+                style: TextStyle(fontSize: 25),
+              ))
         ],
       ),
     );
