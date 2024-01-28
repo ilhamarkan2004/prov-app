@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prov_app/models/product.dart';
+import 'package:prov_app/providers/product.dart';
 import 'dart:math';
 
 class Products with ChangeNotifier {
