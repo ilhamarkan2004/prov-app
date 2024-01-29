@@ -18,7 +18,13 @@ class ProductDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Product Details'),
         actions: [
-          CustomBadge.Badge(
+          Consumer<Cart>(
+            builder: (context, value, ch) {
+              return CustomBadge.Badge(
+                value: value.jumlah.toString(),
+                child: ch!,
+              );
+            },
             child: IconButton(
               icon: Icon(Icons.shopping_cart),
               onPressed: () {
@@ -27,8 +33,7 @@ class ProductDetailScreen extends StatelessWidget {
                 );
               },
             ),
-            value: "0",
-          )
+          ),
         ],
       ),
       body: Column(
