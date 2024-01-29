@@ -5,6 +5,8 @@ class Cart with ChangeNotifier {
   Map<String, CartItem> _items = {};
   Map<String, CartItem> get items => _items;
 
+  int get jumlah => _items.length;
+
   void addCart(String productId, String title, double price) {
     if (_items.containsKey(productId)) {
       // ketika sudah tersedia key productId

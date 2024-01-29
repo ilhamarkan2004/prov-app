@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:prov_app/providers/cart.dart';
 import 'package:prov_app/providers/products.dart';
+import 'package:prov_app/screens/cart_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:prov_app/widgets/badge.dart' as CustomBadge;
 
 class ProductDetailScreen extends StatelessWidget {
   static const routeName = '/product-detail';
@@ -15,6 +17,19 @@ class ProductDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Product Details'),
+        actions: [
+          CustomBadge.Badge(
+            child: IconButton(
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  CartScreen.routeName,
+                );
+              },
+            ),
+            value: "0",
+          )
+        ],
       ),
       body: Column(
         children: [
@@ -55,9 +70,7 @@ class ProductDetailScreen extends StatelessWidget {
                   content: Text('Berhasil ditambahkan'),
                   duration: Duration(milliseconds: 500),
                 ));
-                cart.addCart(
-                    product.id.toString(),
-                    product.title.toString(),
+                cart.addCart(product.id.toString(), product.title.toString(),
                     double.parse(product.price.toString()));
               },
               child: Text(

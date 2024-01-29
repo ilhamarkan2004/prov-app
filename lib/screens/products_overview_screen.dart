@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:prov_app/providers/cart.dart';
 import 'package:prov_app/screens/cart_screen.dart';
 import 'package:prov_app/widgets/product_grid.dart';
 import 'package:prov_app/widgets/badge.dart' as CustomBadge;
+import 'package:provider/provider.dart';
 
 class ProductsOverviewScreen extends StatelessWidget {
   @override
@@ -10,7 +12,13 @@ class ProductsOverviewScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('MyShop'),
         actions: [
-          CustomBadge.Badge(
+          Consumer<Cart>(
+            builder: (context, value, ch) {
+              return CustomBadge.Badge(
+                value: value.jumlah.toString(),
+                child: ch!,
+              );
+            },
             child: IconButton(
               icon: Icon(Icons.shopping_cart),
               onPressed: () {
@@ -19,8 +27,7 @@ class ProductsOverviewScreen extends StatelessWidget {
                 );
               },
             ),
-            value: "0",
-          )
+          ),
         ],
       ),
       body: ProductGrid(),
