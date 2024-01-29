@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prov_app/screens/cart_screen.dart';
 import 'package:prov_app/widgets/product_grid.dart';
 import 'package:prov_app/widgets/badge.dart' as CustomBadge;
 
@@ -12,7 +13,11 @@ class ProductsOverviewScreen extends StatelessWidget {
           CustomBadge.Badge(
             child: IconButton(
               icon: Icon(Icons.shopping_cart),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  CartScreen.routeName,
+                );
+              },
             ),
             value: "0",
           )
